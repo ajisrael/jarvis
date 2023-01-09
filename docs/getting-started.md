@@ -82,13 +82,11 @@ From there, click on your profile and then view api keys.
 
 Then click `Create new secret key` and copy the key to your clipboard.
 
-Now head back to the project and create a `.env` file in the project's root directory. Here you will save the API key to an environement variable like in the following example:
+Now head back to the project and create a `.env` file in the server directory. Here you will save the API key to an environement variable like in the following example:
 
 ```bash
-OPEN_API_KEY="insert api key here"
+OPENAI_API_KEY="insert api key here"
 ```
-
-At this point I would also recommend creating a `.gitignore` file in the root directory that includes `.env` to make sure this key is not saved in your git history.
 
 Now that you have your key, you can begin coding the backend of the application.
 
@@ -96,13 +94,13 @@ Note: for the `openai.createCompletion()` command, here are what the following f
 
 ```
 {
-  model: 'text-davinchi-003', // which model to use
+  model: 'text-davinci-003',
   prompt: `${prompt}`,
-  temperature: 0.7, // how much risk it is willing to take when formulating an answer 0 = none
-  max_tokens: 64, // controls length of response
-  top_p: 1,
-  frequency_penalty: 0, // controls repeating of answers, 0 = no restrictions on repetition
-  presence_penalty: 0,
+  temperature: 0, // Higher values means the model will take more risks.
+  max_tokens: 3000, // The maximum number of tokens to generate in the completion. Most models have a context length of 2048 tokens (except for the newest models, which support 4096).
+  top_p: 1, // alternative to sampling with temperature, called nucleus sampling
+  frequency_penalty: 0.5, // Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.
+  presence_penalty: 0, // Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.
 }
 ```
 
