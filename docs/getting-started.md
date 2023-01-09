@@ -48,3 +48,26 @@ Start the project witht the following command:
 ```bash
 npm run dev
 ```
+
+## Create Server
+
+To begin work on the backend of the application navigate back to the root of the project, create the server directory, and enter the server directory with the following command:
+
+```bash
+cd .. && mkdir server && cd ./server
+```
+
+Then run the following command to initialize your backend application:
+
+```bash
+npm init -y
+```
+
+Run the following commands to install your dependencies
+
+```bash
+npm install cors dotenv express openai
+npm install nodemon --save-dev
+```
+
+Then create a `server.js` file in the server directory and start coding your backend server
