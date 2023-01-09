@@ -49,7 +49,7 @@ Start the project witht the following command:
 npm run dev
 ```
 
-## Create Server
+## Create and Setup Server
 
 To begin work on the backend of the application navigate back to the root of the project, create the server directory, and enter the server directory with the following command:
 
@@ -70,4 +70,24 @@ npm install cors dotenv express openai
 npm install nodemon --save-dev
 ```
 
-Then create a `server.js` file in the server directory and start coding your backend server
+Copy the `.gitignore` file from your client to your sever directory
+
+Then create a `server.js` file in the server directory and get ready to start coding your backend server.
+
+## Get OpenAI API Key
+
+Navigate to [Open AI's website](https://openai.com/api/). If you don't have an account, click on the 'Get Started' prompt until you land on the overview page.
+
+From there, click on your profile and then view api keys.
+
+Then click `Create new secret key` and copy the key to your clipboard.
+
+Now head back to the project and create a `.env` file in the project's root directory. Here you will save the API key to an environement variable like in the following example:
+
+```bash
+OPEN_API_KEY="insert api key here"
+```
+
+At this point I would also recommend creating a `.gitignore` file in the root directory that includes `.env` to make sure this key is not saved in your git history.
+
+Now that you have your key, you can begin coding the backend of the application.
