@@ -40,3 +40,11 @@ Then put them inside the client directory.
 ## Cleanup Project
 
 Move the `favicon.ico` file from assets to public, delete the `vite.svg` file in the public directory, and delete `counter.js` from the client directory
+
+## Run Project
+
+Start the project witht the following command:
+
+```bash
+npm run dev
+```
