@@ -5,6 +5,7 @@ const form = document.querySelector('form');
 const chatContainer = document.querySelector('#chat_container');
 
 let loadInterval;
+let previousPrompt = '';
 
 function loader(element) {
   element.textContent = '';
@@ -49,6 +50,7 @@ const handleSubmit = async (event) => {
 
   // user's chatstripe
   chatContainer.innerHTML += chatStripe(false, data.get('prompt'));
+  previousPrompt = data.get('prompt');
 
   form.reset();
 
@@ -97,5 +99,11 @@ form.addEventListener('submit', handleSubmit);
 form.addEventListener('keyup', (event) => {
   if (event.keyCode === 13) {
     handleSubmit(event);
+  }
+});
+form.addEventListener('keyup', (event) => {
+  const currentPrompt = document.getElementById('chat_prompt').value;
+  if (event.keyCode === 38 && currentPrompt === '' && previousPrompt !== '') {
+    document.getElementById('chat_prompt').value = previousPrompt.trim();
   }
 });
