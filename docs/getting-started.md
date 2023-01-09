@@ -91,3 +91,31 @@ OPEN_API_KEY="insert api key here"
 At this point I would also recommend creating a `.gitignore` file in the root directory that includes `.env` to make sure this key is not saved in your git history.
 
 Now that you have your key, you can begin coding the backend of the application.
+
+Note: for the `openai.createCompletion()` command, here are what the following fields correspond to:
+
+```
+{
+  model: 'text-davinchi-003', // which model to use
+  prompt: `${prompt}`,
+  temperature: 0.7, // how much risk it is willing to take when formulating an answer 0 = none
+  max_tokens: 64, // controls length of response
+  top_p: 1,
+  frequency_penalty: 0, // controls repeating of answers, 0 = no restrictions on repetition
+  presence_penalty: 0,
+}
+```
+
+## Running the Backend Server
+
+Run the following command for running the server (after adding the script to `package.json`):
+
+```bash
+npm run server
+```
+
+For during development:
+
+```bash
+npm run dev
+```
